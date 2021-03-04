@@ -1,14 +1,44 @@
 import Head from 'next/head'
 
-export default function Home() {
+import { fetchApi } from 'lib/prismic'
+import PrismicDOM from 'prismic-dom'
+
+interface HomeProps {
+  title: string
+}
+
+export default function Home({ title }: HomeProps) {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Marcelo Boff</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>Hello World</div>
+      <div>{title}</div>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  const home = await fetchApi(
+    `
+    query {
+      allHomes {
+        edges {
+          node {
+            title
+          }
+        }
+      }
+    }
+  `,
+    {}
+  )
+
+  return {
+    props: {
+      title: PrismicDOM.RichText.asText(home.allHomes.edges[0].node.title)
+    }
+  }
 }
