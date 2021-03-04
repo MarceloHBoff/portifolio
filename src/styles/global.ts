@@ -13,6 +13,8 @@ const GlobalStyles = createGlobalStyle`
 
   html, body, #__next {
     height: 100%;
+    background-color: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.text};
   }
 
   body {
