@@ -4,7 +4,14 @@
     "node": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "standard"],
+  "extends": [
+    "plugin:react/recommended",
+    "standard",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "prettier/standard",
+    "prettier/react"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -23,9 +30,9 @@
   "rules": {
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
-    "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "error",
     "space-before-function-paren": "off",
+    "react/prop-types": "off",
     "import-helpers/order-imports": [
       "warn",
       {
