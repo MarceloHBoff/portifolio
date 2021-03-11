@@ -4,6 +4,7 @@ const GlobalStyles = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+    outline: 0;
     box-sizing: border-box;
   }
 
@@ -18,8 +19,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: Roboto, sans-serif;
-    font-size: 2rem;
+    font-family: ${props => props.theme.font.family};
+    font-size: ${props => props.theme.font.sizes.medium};
+  }
+
+  button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
   }
 `
 
