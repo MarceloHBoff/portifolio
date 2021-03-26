@@ -1,60 +1,44 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Container = styled.div`
-  background-color: ${props => props.theme.colors.header};
-  width: 100vw;
-  height: 56px;
+  ${({ theme }) => css`
+    position: relative;
+    background-color: ${theme.colors.header};
+    width: 100vw;
+    height: 6rem;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    padding: ${theme.spacings.small} 20rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
 
-  padding: 10px 300px;
+    ${media.lessThan('large')`
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: ${theme.spacings.small} 2rem;
+    `}
+
+    > svg {
+      width: 30rem;
+      height: 4rem;
+
+      ${media.lessThan('medium')`
+        width: 20rem;
+        height: 2rem;
+      `}
+    }
+  `}
+`
+
+export const IconWrapper = styled.div`
+  position: absolute;
+  top: 1rem;
+  left: 2.5rem;
 
   svg {
-    width: 300px;
-    height: 42px;
+    width: 4rem;
+    height: 4rem;
   }
-`
-
-export const Menus = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  width: 900px;
-`
-
-export const Menu = styled.button<{ selected: boolean }>`
-  font-size: ${props => props.theme.font.sizes.xlarge};
-
-  color: ${props => props.theme.colors.text};
-  padding: 5px 10px;
-
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 10px;
-    border-bottom: 2px solid ${props => props.theme.colors.text};
-    transition: transform 0.3s ease-in-out;
-    transform: scaleX(0);
-  }
-
-  &:hover::after {
-    transform: scaleX(1);
-  }
-
-  ${props =>
-    props.selected &&
-    css`
-      &::after {
-        transform: scaleX(1);
-        border-color: ${props => props.theme.colors.primary};
-      }
-    `}
 `

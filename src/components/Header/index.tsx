@@ -1,29 +1,42 @@
-import { useRouter } from 'next/dist/client/router'
-import Link from 'next/link'
+import { NextRouter } from 'next/dist/client/router'
 
-import Logo from '../../../public/logo.svg'
+import Logo from 'components/Logo'
+import MediaMatch from 'components/MediaMatch'
+import { useState } from 'react'
+import { FaBars } from 'react-icons/fa'
 
-import { Container, Menu, Menus } from './styles'
+import Menu from './Menu'
+import * as S from './styles'
 
-const Header = () => {
-  const router = useRouter()
+type HeaderProps = {
+  router: NextRouter
+}
+
+const Header = ({ router }: HeaderProps) => {
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <Container>
-      <Logo />
+    <S.Container>
+      <MediaMatch lessThan="large">
+        <S.IconWrapper onClick={() => setIsOpen(true)}>
+          <FaBars aria-label="Open Menu" />
+        </S.IconWrapper>
 
-      <Menus>
-        <Link href="/">
-          <Menu selected={router.pathname === '/'}>Projetos</Menu>
-        </Link>
-        <Link href="/whoIAm">
-          <Menu selected={router.pathname === '/whoIAm'}>Sobre</Menu>
-        </Link>
-        <Link href="/contact">
-          <Menu selected={router.pathname === '/contact'}>Contato</Menu>
-        </Link>
-      </Menus>
-    </Container>
+        <Logo size="small" />
+      </MediaMatch>
+
+      <MediaMatch lessThan="large">
+        <Menu router={router} isOpen={isOpen} setIsOpen={setIsOpen} />
+      </MediaMatch>
+
+      <MediaMatch greaterThan="large">
+        <Logo size="normal" />
+      </MediaMatch>
+
+      <MediaMatch greaterThan="large">
+        <Menu router={router} />
+      </MediaMatch>
+    </S.Container>
   )
 }
 

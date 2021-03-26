@@ -1,6 +1,7 @@
 import { NextRouter } from 'next/dist/client/router'
 
-import { screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import theme from 'styles/theme'
 import { renderWithTheme } from 'utils/tests/helpers'
@@ -35,5 +36,16 @@ describe('<Menu />', () => {
         modifier: '::after'
       }
     )
+  })
+
+  it('should click on menu', async () => {
+    renderWithTheme(<Menu router={{ pathname: '/contact' } as NextRouter} />)
+
+    userEvent.click(screen.getByText(/contato/i).parentElement!)
+    await waitFor(() => {
+      expect(
+        screen.getAllByText(/projetos/i)[0].parentElement
+      ).toHaveStyleRule('position', 'fixed', { media: '(max-width: 1170px)' })
+    })
   })
 })
