@@ -1,18 +1,19 @@
 import Head from 'next/head'
 
+import PrismicDOM from 'prismic-dom'
 import { FormEvent, useCallback, useState } from 'react'
-import {
-  Container,
-  Form,
-  Input,
-  Submit,
-  SubTitle,
-  TextArea,
-  Title
-} from 'styles/pages/contact'
+import { fetchApi } from 'service/prismic'
+import * as S from 'styles/pages/contact'
 
-interface HomeProps {
-  title: string
+type Social = {
+  uid: string
+  description: string
+  image: string
+  url: string
+}
+
+type ContactProps = {
+  socials: Social[]
 }
 
 type FormData = {
@@ -24,7 +25,7 @@ type FormData = {
 
 type FormDataKey = keyof FormData
 
-export default function Contact({ title }: HomeProps) {
+export default function Contact({ socials }: ContactProps) {
   const [data, setData] = useState<FormData>({
     name: '',
     email: '',
@@ -45,40 +46,89 @@ export default function Contact({ title }: HomeProps) {
   )
 
   return (
-    <Container>
+    <S.Container>
       <Head>
         <title>Marcelo Boff</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Title>Se interresou pelo meu trabalho?</Title>
-      <SubTitle>
-        Entre em contato comigo por aqui ou por alguma das minhas redes sociais
-      </SubTitle>
+      <S.Form onSubmit={handleSubmit}>
+        <S.Title>Se interresou pelo meu trabalho?</S.Title>
+        <S.SubTitle>
+          Entre em contato comigo por aqui ou por alguma das minhas redes
+          sociais
+        </S.SubTitle>
 
-      <Form onSubmit={handleSubmit}>
-        <Input
+        <S.Input
           placeholder="Digite seu nome"
           value={data.name}
           onChange={e => setFormData('name', e.target.value)}
         />
-        <Input
+        <S.Input
           placeholder="Digite seu e-mail"
           value={data.email}
           onChange={e => setFormData('email', e.target.value)}
         />
-        <Input
+        <S.Input
           placeholder="Digite o assunto"
           value={data.subject}
           onChange={e => setFormData('subject', e.target.value)}
         />
-        <TextArea
+        <S.TextArea
           placeholder="Digite a mensagem"
           value={data.message}
           onChange={e => setFormData('message', e.target.value)}
         />
-        <Submit type="submit">Enviar</Submit>
-      </Form>
-    </Container>
+        <S.Submit type="submit">Enviar</S.Submit>
+      </S.Form>
+
+      <S.Socials>
+        {socials.map(social => (
+          <S.Social key={social.uid}>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={social.url}
+              title={social.description}
+            >
+              <img src={social.image} alt={social.description} />
+            </a>
+          </S.Social>
+        ))}
+      </S.Socials>
+    </S.Container>
   )
+}
+
+export async function getServerSideProps() {
+  const social = await fetchApi(
+    `
+    query {
+      allSocials {
+        edges {
+          node {
+            _meta {
+              uid
+            }
+            description
+            image
+            url
+          }
+        }
+      }
+    }
+  `,
+    {}
+  )
+
+  return {
+    props: {
+      socials: social.allSocials.edges.map(({ node }: any) => ({
+        uid: node._meta.uid,
+        description: PrismicDOM.RichText.asText(node.description),
+        image: node.image.url,
+        url: node.url
+      }))
+    }
+  }
 }
