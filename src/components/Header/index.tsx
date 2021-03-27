@@ -22,7 +22,7 @@ const Header = ({ router }: HeaderProps) => {
           <FaBars aria-label="Open Menu" />
         </S.IconWrapper>
 
-        <Logo size="small" />
+        <Logo size="small" id="small_logo" />
       </MediaMatch>
 
       <MediaMatch lessThan="large">

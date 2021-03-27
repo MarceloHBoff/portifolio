@@ -21,8 +21,8 @@ describe('<Logo />', () => {
 
     const logo = screen.getByRole('img', { name: /marcelo boff/i })
     expect(logo.parentElement).toHaveStyle({
-      width: '24rem',
-      height: '3.5rem'
+      width: '19rem',
+      height: '3rem'
     })
   })
 })

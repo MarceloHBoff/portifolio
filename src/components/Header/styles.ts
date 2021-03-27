@@ -19,26 +19,16 @@ export const Container = styled.div`
 
       padding: ${theme.spacings.small} 2rem;
     `}
-
-    > svg {
-      width: 30rem;
-      height: 4rem;
-
-      ${media.lessThan('medium')`
-        width: 20rem;
-        height: 2rem;
-      `}
-    }
   `}
 `
 
 export const IconWrapper = styled.div`
   position: absolute;
-  top: 1rem;
-  left: 2.5rem;
+  top: 1.5rem;
+  left: 2rem;
 
   svg {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
   }
 `
