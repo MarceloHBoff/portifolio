@@ -27,35 +27,38 @@ export const SubTitle = styled.h2`
 `
 
 export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  width: 100%;
-  max-width: 60rem;
-  padding: 3rem 5rem;
-  margin-top: 5rem;
-  border-radius: 10px;
-  background: ${props => props.theme.colors.secundary};
+    width: 100%;
+    max-width: 60rem;
+    padding: 3rem 5rem;
+    margin-top: 5rem;
+    border-radius: 10px;
+    background: ${theme.colors.secundary};
+    box-shadow: ${theme.boxShadow};
 
-  ${media.lessThan('medium')`
-    border-radius: 0;
-    padding: 3rem;
+    ${media.lessThan('medium')`
+      border-radius: 0;
+      padding: 3rem;
+    `}
+
+    animation: onEnter 1s ease-in-out;
+
+    @keyframes onEnter {
+      0% {
+        opacity: 0;
+        transform: translateX(100px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
   `}
-
-  animation: onEnter 1s ease-in-out;
-
-  @keyframes onEnter {
-    0% {
-      opacity: 0;
-      transform: translateX(100px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
 `
 
 export const Input = styled.input`
@@ -130,6 +133,8 @@ export const Social = styled.div`
     position: relative;
     text-align: center;
     transition: all 0.3s ease-in-out;
+
+    box-shadow: ${theme.boxShadow};
 
     ${media.lessThan('medium')`
       width: 60%;

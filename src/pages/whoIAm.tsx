@@ -1,0 +1,113 @@
+import Head from 'next/head'
+
+import PrismicDOM from 'prismic-dom'
+import { fetchApi } from 'service/prismic'
+import * as S from 'styles/pages/whoIAm'
+
+type Tech = {
+  uid: string
+  description: string
+  image: string
+  url: string
+}
+
+type WhoIamProps = {
+  title: string
+  about: string
+  altimage: string
+  image: string
+  techstitle: string
+  techs: Tech[]
+}
+
+export default function WhoIAm({
+  title,
+  about,
+  altimage,
+  image,
+  techstitle,
+  techs
+}: WhoIamProps) {
+  return (
+    <S.Container>
+      <Head>
+        <title>Marcelo Boff</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <S.Title>{title}</S.Title>
+      <S.Content>
+        <img src={image} alt={altimage} />
+
+        <div>{about}</div>
+      </S.Content>
+
+      <S.Title>{techstitle}</S.Title>
+      <S.Techs>
+        {techs.map(tech => (
+          <S.Tech key={tech.uid}>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={tech.url}
+              title={tech.description}
+            >
+              <img src={tech.image} alt={tech.description} />
+            </a>
+          </S.Tech>
+        ))}
+      </S.Techs>
+    </S.Container>
+  )
+}
+
+export async function getServerSideProps() {
+  const data = await fetchApi(
+    `
+    query {
+      allWhoiams {
+        edges {
+          node {
+            title
+            about
+            image
+            techstitle
+          }
+        }
+      }
+      allTechs {
+        edges {
+          node {
+            _meta {
+              uid
+            }
+            description
+            image
+            url
+          }
+        }
+      }
+    }
+
+  `,
+    {}
+  )
+
+  return {
+    props: {
+      title: PrismicDOM.RichText.asText(data.allWhoiams.edges[0].node.title),
+      about: PrismicDOM.RichText.asText(data.allWhoiams.edges[0].node.about),
+      image: data.allWhoiams.edges[0].node.image.url,
+      altimage: data.allWhoiams.edges[0].node.image.alt,
+      techstitle: PrismicDOM.RichText.asText(
+        data.allWhoiams.edges[0].node.techstitle
+      ),
+      techs: data.allTechs.edges.map(({ node }: any) => ({
+        uid: node._meta.uid,
+        description: PrismicDOM.RichText.asText(node.description),
+        image: node.image.url,
+        url: node.url
+      }))
+    }
+  }
+}

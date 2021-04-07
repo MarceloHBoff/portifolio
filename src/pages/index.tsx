@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
-import { fetchApi } from 'lib/prismic'
 import PrismicDOM from 'prismic-dom'
+import { fetchApi } from 'service/prismic'
 
 interface HomeProps {
   title: string

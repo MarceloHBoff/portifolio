@@ -22,7 +22,8 @@ export default {
       medium: '1.6rem',
       large: '1.8rem',
       xlarge: '2.0rem',
-      xxlarge: '2.8rem'
+      xxlarge: '2.4rem',
+      huge: '2.8rem'
     }
   },
 
@@ -40,5 +41,7 @@ export default {
     xlarge: '2.5rem',
     huge: '3rem',
     xhuge: '4rem'
-  }
+  },
+
+  boxShadow: '10px 10px 10px 1px rgba(0, 0, 0, 0.3)'
 } as const
