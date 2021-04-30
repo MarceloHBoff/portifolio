@@ -12,7 +12,7 @@ type HeaderProps = {
   router: NextRouter
 }
 
-const Header = ({ router }: HeaderProps) => {
+export default function Header({ router }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -39,5 +39,3 @@ const Header = ({ router }: HeaderProps) => {
     </S.Container>
   )
 }
-
-export default Header

@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 
 import PrismicDOM from 'prismic-dom'
@@ -31,7 +32,7 @@ export default function WhoIAm({
   return (
     <S.Container>
       <Head>
-        <title>Marcelo Boff</title>
+        <title>Sobre | Marcelo Boff</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -61,7 +62,7 @@ export default function WhoIAm({
   )
 }
 
-export async function getServerSideProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await fetchApi(
     `
     query {
@@ -108,6 +109,7 @@ export async function getServerSideProps() {
         image: node.image.url,
         url: node.url
       }))
-    }
+    },
+    revalidate: 60 * 60 * 24 // 24 horas
   }
 }

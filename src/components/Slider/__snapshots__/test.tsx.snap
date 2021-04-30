@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Slider /> should render the heading 1`] = `
+.c0 {
+  max-width: 1120px;
+}
+
+<section
+  class="c0"
+>
+  <div
+    class="slick-slider slick-initialized"
+    dir="ltr"
+  >
+    <svg
+      class="slick-arrow slick-prev slick-disabled"
+      color="#fff"
+      currentSlide="0"
+      data-role="none"
+      fill="currentColor"
+      height="1em"
+      slideCount="2"
+      stroke="currentColor"
+      stroke-width="0"
+      style="color: rgb(255, 255, 255); display: block;"
+      viewBox="0 0 448 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+      />
+    </svg>
+    <div
+      class="slick-list"
+    >
+      <div
+        class="slick-track"
+        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+      >
+        <div
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
+          data-index="0"
+          style="outline: none; width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <p
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            >
+              Item 1
+            </p>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="slick-slide"
+          data-index="1"
+          style="outline: none; width: 0px;"
+          tabindex="-1"
+        >
+          <div>
+            <p
+              style="width: 100%; display: inline-block;"
+              tabindex="-1"
+            >
+              Item 2
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <svg
+      class="slick-arrow slick-next"
+      color="#fff"
+      currentSlide="0"
+      data-role="none"
+      fill="currentColor"
+      height="1em"
+      slideCount="2"
+      stroke="currentColor"
+      stroke-width="0"
+      style="color: rgb(255, 255, 255); display: block;"
+      viewBox="0 0 448 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+      />
+    </svg>
+    <ul
+      class="slick-dots"
+      style="display: block;"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          2
+        </button>
+      </li>
+    </ul>
+  </div>
+</section>
+`;

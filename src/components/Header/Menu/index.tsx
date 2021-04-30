@@ -11,7 +11,7 @@ type MenuProps = {
   router: NextRouter
 }
 
-const Menu = ({ isOpen = true, setIsOpen, router }: MenuProps) => {
+export default function Menu({ isOpen = true, setIsOpen, router }: MenuProps) {
   const handleClick = useCallback(() => {
     if (setIsOpen) setIsOpen(false)
   }, [setIsOpen])
@@ -30,5 +30,3 @@ const Menu = ({ isOpen = true, setIsOpen, router }: MenuProps) => {
     </Container>
   )
 }
-
-export default Menu

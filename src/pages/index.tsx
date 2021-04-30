@@ -1,33 +1,55 @@
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 
-import PrismicDOM from 'prismic-dom'
+import Project, { ProjectType } from 'components/Project'
+import { RichText } from 'prismic-dom'
 import { fetchApi } from 'service/prismic'
+import { Container } from 'styles/pages/home'
 
-interface HomeProps {
-  title: string
+import Slider from '../components/Slider'
+
+type HomeProps = {
+  projects: ProjectType[]
 }
 
-export default function Home({ title }: HomeProps) {
+export default function Home({ projects }: HomeProps) {
   return (
-    <div>
+    <>
       <Head>
-        <title>Marcelo Boff</title>
+        <title>Home | Marcelo Boff</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>{title}</div>
-    </div>
+      <Container>
+        <Slider>
+          {projects.map(project => (
+            <div key={project.uid}>
+              <Project project={project} />
+            </div>
+          ))}
+        </Slider>
+      </Container>
+    </>
   )
 }
 
-export async function getServerSideProps() {
-  const home = await fetchApi(
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await fetchApi(
     `
     query {
-      allHomes {
+      allProjects {
         edges {
           node {
             title
+            description
+            banner
+            url
+            _meta {
+              uid
+            }
+            images {
+              image
+            }
           }
         }
       }
@@ -36,9 +58,24 @@ export async function getServerSideProps() {
     {}
   )
 
+  // console.log(JSON.stringify(response, null, 2))
+  const projects = [] as ProjectType[]
+
+  response.allProjects.edges.forEach((project: any) => {
+    projects.push({
+      title: RichText.asText(project.node?.title),
+      description: RichText.asText(project.node?.description),
+      url: RichText.asText(project.node?.url),
+      uid: project.node._meta?.uid,
+      banner: project.node.banner?.url,
+      images: project.node.images.map((image: any) => image.image.url)
+    })
+  })
+
+  console.log(projects)
+
   return {
-    props: {
-      title: PrismicDOM.RichText.asText(home.allHomes.edges[0].node.title)
-    }
+    props: { projects },
+    revalidate: 60 * 60 * 24 // 24 horas
   }
 }
