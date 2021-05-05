@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 
 import PrismicDOM from 'prismic-dom'
@@ -40,7 +41,6 @@ export default function Contact({ socials }: ContactProps) {
   const handleSubmit = useCallback(
     (e: FormEvent) => {
       e.preventDefault()
-      console.log(data)
     },
     [data]
   )
@@ -48,7 +48,7 @@ export default function Contact({ socials }: ContactProps) {
   return (
     <S.Container>
       <Head>
-        <title>Marcelo Boff</title>
+        <title>Contato | Marcelo Boff</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -58,7 +58,6 @@ export default function Contact({ socials }: ContactProps) {
           Entre em contato comigo por aqui ou por alguma das minhas redes
           sociais
         </S.SubTitle>
-
         <S.Input
           placeholder="Digite seu nome"
           value={data.name}
@@ -100,7 +99,7 @@ export default function Contact({ socials }: ContactProps) {
   )
 }
 
-export async function getServerSideProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const social = await fetchApi(
     `
     query {
@@ -129,6 +128,7 @@ export async function getServerSideProps() {
         image: node.image.url,
         url: node.url
       }))
-    }
+    },
+    revalidate: 60 * 60 * 24 // 24 horas
   }
 }

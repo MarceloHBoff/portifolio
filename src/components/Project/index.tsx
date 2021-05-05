@@ -3,10 +3,14 @@ import { Container, Content, Title, Description } from './styles'
 export type ProjectType = {
   title: string
   description: string
-  url: string
+  liveurl: string
+  giturl: string
   uid: string
   banner: string
-  images: string[]
+  images: {
+    url: string
+    alt: string
+  }[]
 }
 type ProjectProps = {
   project: ProjectType

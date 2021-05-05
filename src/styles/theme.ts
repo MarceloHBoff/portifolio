@@ -1,11 +1,11 @@
 export default {
   colors: {
-    background: '#283747',
+    background: '#121212',
     text: '#FAFAFA',
     textBlack: '#030517',
-    header: '#17202A',
-    primary: '#EB984E',
-    primaryDark: '#C85E00',
+    header: '#292929',
+    primary: '#A6DAF7',
+    primaryDark: '#01537F',
     secundary: '#222',
     error: '#c53030'
   },
@@ -30,7 +30,7 @@ export default {
   border: {
     radius: '1rem',
     small: '0.1rem',
-    big: '0.2rem'
+    big: '0.3rem'
   },
 
   spacings: {
@@ -43,5 +43,5 @@ export default {
     xhuge: '4rem'
   },
 
-  boxShadow: '10px 10px 10px 1px rgba(0, 0, 0, 0.3)'
+  boxShadow: '10px 10px 10px 1px rgba(0, 0, 0, 0.4)'
 } as const

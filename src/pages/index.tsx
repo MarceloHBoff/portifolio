@@ -2,9 +2,9 @@ import { GetStaticProps } from 'next'
 import Head from 'next/head'
 
 import Project, { ProjectType } from 'components/Project'
-import { RichText } from 'prismic-dom'
 import { fetchApi } from 'service/prismic'
 import { Container } from 'styles/pages/home'
+import { getProjectByNode } from 'utils/projectUtils'
 
 import Slider from '../components/Slider'
 
@@ -43,7 +43,8 @@ export const getStaticProps: GetStaticProps = async () => {
             title
             description
             banner
-            url
+            liveurl
+            giturl
             _meta {
               uid
             }
@@ -62,17 +63,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const projects = [] as ProjectType[]
 
   response.allProjects.edges.forEach((project: any) => {
-    projects.push({
-      title: RichText.asText(project.node?.title),
-      description: RichText.asText(project.node?.description),
-      url: RichText.asText(project.node?.url),
-      uid: project.node._meta?.uid,
-      banner: project.node.banner?.url,
-      images: project.node.images.map((image: any) => image.image.url)
-    })
+    projects.push(getProjectByNode(project.node))
   })
-
-  console.log(projects)
 
   return {
     props: { projects },
