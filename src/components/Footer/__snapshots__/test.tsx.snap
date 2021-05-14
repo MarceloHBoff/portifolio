@@ -7,7 +7,7 @@ exports[`<Footer /> should render correctly 1`] = `
   left: 0;
   right: 0;
   height: 2.5rem;
-  background: #17202A;
+  background: #292929;
   font-size: 1.4rem;
   padding: 0.5rem 30rem;
 }

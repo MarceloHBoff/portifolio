@@ -2,10 +2,78 @@
 
 exports[`<Slider /> should render the heading 1`] = `
 .c0 {
-  max-width: 1120px;
+  max-width: 70%;
 }
 
-<section
+.c0 .slick-dots {
+  list-style: none;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.c0 .slick-dots li {
+  background: rgba(255,255,255,0.3);
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 1.5rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.c0 .slick-dots li:hover {
+  background: #fff;
+}
+
+.c0 .slick-dots li.slick-active {
+  background: #01537F;
+}
+
+.c0 .slick-dots button {
+  opacity: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+.c0 .slick-prev {
+  left: -4rem;
+}
+
+.c0 .slick-next {
+  right: -4rem;
+}
+
+.c0 .slick-prev.slick-disabled,
+.c0 .slick-next.slick-disabled {
+  visibility: hidden;
+}
+
+<div
   class="c0"
 >
   <div
@@ -111,5 +179,5 @@ exports[`<Slider /> should render the heading 1`] = `
       </li>
     </ul>
   </div>
-</section>
+</div>
 `;

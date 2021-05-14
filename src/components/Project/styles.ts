@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components'
 
-export const Container = styled.div`
-  ${({ theme }) => css`
+type ContainerProps = {
+  vertical: boolean
+}
+
+export const Container = styled.div<ContainerProps>`
+  ${({ theme, vertical }) => css`
     width: 100%;
     padding: ${theme.spacings.normal};
 
@@ -10,21 +14,30 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
 
+    cursor: pointer;
+
     img {
-      width: 900px;
-      height: 500px;
+      width: 100%;
+      height: 700px;
       border-radius: 10px;
+
+      ${vertical &&
+      css`
+        width: 35%;
+        border-radius: 0px;
+        margin: 0 auto;
+      `}
     }
   `}
 `
 
 export const Content = styled.div`
   ${({ theme }) => css`
-    width: 900px;
+    width: 100%;
     height: 150px;
     margin-top: -150px;
     background: ${theme.colors.secundary};
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     padding: ${theme.spacings.normal};
     border-radius: 0 0 10px 10px;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
@@ -41,6 +54,7 @@ export const Title = styled.div`
 
 export const Description = styled.div`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.small};
+    line-height: ${theme.font.sizes.xxlarge};
+    font-size: ${theme.font.sizes.medium};
   `}
 `

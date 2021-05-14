@@ -55,7 +55,7 @@ exports[`<Header /> should render correctly 1`] = `
   left: 0;
   right: 0;
   border-radius: 1rem;
-  border-bottom: 0.2rem solid #FAFAFA;
+  border-bottom: 0.3rem solid #FAFAFA;
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
@@ -74,7 +74,7 @@ exports[`<Header /> should render correctly 1`] = `
   -webkit-transform: scaleX(1);
   -ms-transform: scaleX(1);
   transform: scaleX(1);
-  border-color: #EB984E;
+  border-color: #A6DAF7;
 }
 
 .c6 {
@@ -91,7 +91,7 @@ exports[`<Header /> should render correctly 1`] = `
   left: 0;
   right: 0;
   border-radius: 1rem;
-  border-bottom: 0.2rem solid #FAFAFA;
+  border-bottom: 0.3rem solid #FAFAFA;
   -webkit-transition: -webkit-transform 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
@@ -108,7 +108,7 @@ exports[`<Header /> should render correctly 1`] = `
 
 .c0 {
   position: relative;
-  background-color: #17202A;
+  background-color: #292929;
   width: 100vw;
   height: 6rem;
   padding: 1rem 20rem;
@@ -147,7 +147,7 @@ exports[`<Header /> should render correctly 1`] = `
     bottom: 0;
     right: 0;
     left: 0;
-    background: #283747;
+    background: #121212;
     z-index: 1;
     display: -webkit-box;
     display: -webkit-flex;
@@ -289,11 +289,11 @@ exports[`<Header /> should render correctly 1`] = `
                 r="1"
               >
                 <stop
-                  stop-color="#FFCA99"
+                  stop-color="#A6DAF7"
                 />
                 <stop
                   offset="1"
-                  stop-color="#F77C0A"
+                  stop-color="#A6DAF7"
                 />
               </radialgradient>
               <radialgradient
@@ -305,11 +305,11 @@ exports[`<Header /> should render correctly 1`] = `
                 r="1"
               >
                 <stop
-                  stop-color="#FFCA99"
+                  stop-color="#A6DAF7"
                 />
                 <stop
                   offset="1"
-                  stop-color="#F77C0A"
+                  stop-color="#A6DAF7"
                 />
               </radialgradient>
               <radialgradient
@@ -321,11 +321,11 @@ exports[`<Header /> should render correctly 1`] = `
                 r="1"
               >
                 <stop
-                  stop-color="#FFCA99"
+                  stop-color="#A6DAF7"
                 />
                 <stop
                   offset="1"
-                  stop-color="#F77C0A"
+                  stop-color="#A6DAF7"
                 />
               </radialgradient>
               <radialgradient
@@ -337,11 +337,11 @@ exports[`<Header /> should render correctly 1`] = `
                 r="1"
               >
                 <stop
-                  stop-color="#FFCA99"
+                  stop-color="#A6DAF7"
                 />
                 <stop
                   offset="1"
-                  stop-color="#F77C0A"
+                  stop-color="#A6DAF7"
                 />
               </radialgradient>
               <radialgradient
@@ -353,11 +353,11 @@ exports[`<Header /> should render correctly 1`] = `
                 r="1"
               >
                 <stop
-                  stop-color="#FFCA99"
+                  stop-color="#A6DAF7"
                 />
                 <stop
                   offset="1"
-                  stop-color="#F77C0A"
+                  stop-color="#A6DAF7"
                 />
               </radialgradient>
               <radialgradient
@@ -369,11 +369,11 @@ exports[`<Header /> should render correctly 1`] = `
                 r="1"
               >
                 <stop
-                  stop-color="#FFCA99"
+                  stop-color="#A6DAF7"
                 />
                 <stop
                   offset="1"
-                  stop-color="#F77C0A"
+                  stop-color="#A6DAF7"
                 />
               </radialgradient>
             </defs>
@@ -488,11 +488,11 @@ exports[`<Header /> should render correctly 1`] = `
                 r="1"
               >
                 <stop
-                  stop-color="#FFCA99"
+                  stop-color="#A6DAF7"
                 />
                 <stop
                   offset="1"
-                  stop-color="#F77C0A"
+                  stop-color="#A6DAF7"
                 />
               </radialgradient>
               <radialgradient
@@ -504,11 +504,11 @@ exports[`<Header /> should render correctly 1`] = `
                 r="1"
               >
                 <stop
-                  stop-color="#FFCA99"
+                  stop-color="#A6DAF7"
                 />
                 <stop
                   offset="1"
-                  stop-color="#F77C0A"
+                  stop-color="#A6DAF7"
                 />
               </radialgradient>
               <radialgradient
@@ -520,11 +520,11 @@ exports[`<Header /> should render correctly 1`] = `
                 r="1"
               >
                 <stop
-                  stop-color="#FFCA99"
+                  stop-color="#A6DAF7"
                 />
                 <stop
                   offset="1"
-                  stop-color="#F77C0A"
+                  stop-color="#A6DAF7"
                 />
               </radialgradient>
               <radialgradient
@@ -536,11 +536,11 @@ exports[`<Header /> should render correctly 1`] = `
                 r="1"
               >
                 <stop
-                  stop-color="#FFCA99"
+                  stop-color="#A6DAF7"
                 />
                 <stop
                   offset="1"
-                  stop-color="#F77C0A"
+                  stop-color="#A6DAF7"
                 />
               </radialgradient>
               <radialgradient
@@ -552,11 +552,11 @@ exports[`<Header /> should render correctly 1`] = `
                 r="1"
               >
                 <stop
-                  stop-color="#FFCA99"
+                  stop-color="#A6DAF7"
                 />
                 <stop
                   offset="1"
-                  stop-color="#F77C0A"
+                  stop-color="#A6DAF7"
                 />
               </radialgradient>
               <radialgradient
@@ -568,11 +568,11 @@ exports[`<Header /> should render correctly 1`] = `
                 r="1"
               >
                 <stop
-                  stop-color="#FFCA99"
+                  stop-color="#A6DAF7"
                 />
                 <stop
                   offset="1"
-                  stop-color="#F77C0A"
+                  stop-color="#A6DAF7"
                 />
               </radialgradient>
             </defs>

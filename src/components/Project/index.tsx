@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { Container, Content, Title, Description } from './styles'
 
 export type ProjectType = {
@@ -5,26 +7,35 @@ export type ProjectType = {
   description: string
   liveurl: string
   giturl: string
+  color: string
   uid: string
-  banner: string
+  banner: {
+    vertical: boolean
+    url: string
+    alt: string
+  }
   images: {
+    vertical: boolean
     url: string
     alt: string
   }[]
 }
+
 type ProjectProps = {
   project: ProjectType
 }
 
 export default function Project({ project }: ProjectProps) {
   return (
-    <Container>
-      <img src={project.banner} alt={project.title} />
+    <Link href={`/project/${project.uid}`}>
+      <Container vertical={project.banner.vertical}>
+        <img src={project.banner.url} alt={project.banner.alt} />
 
-      <Content>
-        <Title>{project.title}</Title>
-        <Description>{project.description}</Description>
-      </Content>
-    </Container>
+        <Content>
+          <Title>{project.title}</Title>
+          <Description>{project.description}</Description>
+        </Content>
+      </Container>
+    </Link>
   )
 }

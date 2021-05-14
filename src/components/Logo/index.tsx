@@ -92,7 +92,7 @@ export default function Logo({ id = 'logo', size = 'normal' }: LogoProps) {
             gradientTransform="translate(8.70246 0.5) rotate(90) scale(0.5 8.70246)"
           >
             <stop stopColor={theme.colors.primary} />
-            <stop offset="1" stopColor={theme.colors.primaryDark} />
+            <stop offset="1" stopColor={theme.colors.primary} />
           </radialGradient>
           <radialGradient
             id={`paint_${id}_radial`}
@@ -103,7 +103,7 @@ export default function Logo({ id = 'logo', size = 'normal' }: LogoProps) {
             gradientTransform="translate(8.70246 0.5) rotate(90) scale(0.5 8.70246)"
           >
             <stop stopColor={theme.colors.primary} />
-            <stop offset="1" stopColor={theme.colors.primaryDark} />
+            <stop offset="1" stopColor={theme.colors.primary} />
           </radialGradient>
           <radialGradient
             id={`paint_${id}_radial`}
@@ -114,7 +114,7 @@ export default function Logo({ id = 'logo', size = 'normal' }: LogoProps) {
             gradientTransform="translate(8.62384 0.5) rotate(90) scale(0.5 8.62384)"
           >
             <stop stopColor={theme.colors.primary} />
-            <stop offset="1" stopColor={theme.colors.primaryDark} />
+            <stop offset="1" stopColor={theme.colors.primary} />
           </radialGradient>
           <radialGradient
             id={`paint_${id}_radial`}
@@ -125,7 +125,7 @@ export default function Logo({ id = 'logo', size = 'normal' }: LogoProps) {
             gradientTransform="translate(8.62384 0.5) rotate(90) scale(0.5 8.62384)"
           >
             <stop stopColor={theme.colors.primary} />
-            <stop offset="1" stopColor={theme.colors.primaryDark} />
+            <stop offset="1" stopColor={theme.colors.primary} />
           </radialGradient>
           <radialGradient
             id={`paint_${id}_radial`}
@@ -136,7 +136,7 @@ export default function Logo({ id = 'logo', size = 'normal' }: LogoProps) {
             gradientTransform="translate(98.9 14.5) rotate(90) scale(14.5 70.38)"
           >
             <stop stopColor={theme.colors.primary} />
-            <stop offset="1" stopColor={theme.colors.primaryDark} />
+            <stop offset="1" stopColor={theme.colors.primary} />
           </radialGradient>
           <radialGradient
             id={`paint_${id}_radial`}
@@ -147,7 +147,7 @@ export default function Logo({ id = 'logo', size = 'normal' }: LogoProps) {
             gradientTransform="translate(10.8446 0.5) rotate(90) scale(0.5 10.8446)"
           >
             <stop stopColor={theme.colors.primary} />
-            <stop offset="1" stopColor={theme.colors.primaryDark} />
+            <stop offset="1" stopColor={theme.colors.primary} />
           </radialGradient>
         </defs>
       </svg>

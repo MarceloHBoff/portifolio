@@ -12,31 +12,14 @@ const settings: Settings = {
 
 type SliderProps = Settings & {
   children: React.ReactNode
+  dotsColor?: string
 }
 
-export default function Slider({ children, ...rest }: SliderProps) {
+export default function Slider({ children, dotsColor, ...rest }: SliderProps) {
   return (
-    <S.Wrapper>
+    <S.Wrapper dotsColor={dotsColor}>
       <SlickSlider {...settings} {...rest}>
         {children}
-        {/* <div>
-        <h3 style={{ backgroundColor: '#fff' }}>1</h3>
-      </div>
-      <div>
-        <h3 style={{ backgroundColor: '#000' }}>2</h3>
-      </div>
-      <div>
-        <h3 style={{ backgroundColor: '#ccc' }}>3</h3>
-      </div>
-      <div>
-        <h3 style={{ backgroundColor: '#222' }}>4</h3>
-      </div>
-      <div>
-        <h3 style={{ backgroundColor: '#123132' }}>5</h3>
-      </div>
-      <div>
-        <h3 style={{ backgroundColor: '#456789' }}>6</h3>
-      </div> */}
       </SlickSlider>
     </S.Wrapper>
   )

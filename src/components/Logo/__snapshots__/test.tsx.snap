@@ -90,11 +90,11 @@ exports[`<Logo /> should render correctly 1`] = `
             r="1"
           >
             <stop
-              stop-color="#FFCA99"
+              stop-color="#A6DAF7"
             />
             <stop
               offset="1"
-              stop-color="#F77C0A"
+              stop-color="#A6DAF7"
             />
           </radialgradient>
           <radialgradient
@@ -106,11 +106,11 @@ exports[`<Logo /> should render correctly 1`] = `
             r="1"
           >
             <stop
-              stop-color="#FFCA99"
+              stop-color="#A6DAF7"
             />
             <stop
               offset="1"
-              stop-color="#F77C0A"
+              stop-color="#A6DAF7"
             />
           </radialgradient>
           <radialgradient
@@ -122,11 +122,11 @@ exports[`<Logo /> should render correctly 1`] = `
             r="1"
           >
             <stop
-              stop-color="#FFCA99"
+              stop-color="#A6DAF7"
             />
             <stop
               offset="1"
-              stop-color="#F77C0A"
+              stop-color="#A6DAF7"
             />
           </radialgradient>
           <radialgradient
@@ -138,11 +138,11 @@ exports[`<Logo /> should render correctly 1`] = `
             r="1"
           >
             <stop
-              stop-color="#FFCA99"
+              stop-color="#A6DAF7"
             />
             <stop
               offset="1"
-              stop-color="#F77C0A"
+              stop-color="#A6DAF7"
             />
           </radialgradient>
           <radialgradient
@@ -154,11 +154,11 @@ exports[`<Logo /> should render correctly 1`] = `
             r="1"
           >
             <stop
-              stop-color="#FFCA99"
+              stop-color="#A6DAF7"
             />
             <stop
               offset="1"
-              stop-color="#F77C0A"
+              stop-color="#A6DAF7"
             />
           </radialgradient>
           <radialgradient
@@ -170,11 +170,11 @@ exports[`<Logo /> should render correctly 1`] = `
             r="1"
           >
             <stop
-              stop-color="#FFCA99"
+              stop-color="#A6DAF7"
             />
             <stop
               offset="1"
-              stop-color="#F77C0A"
+              stop-color="#A6DAF7"
             />
           </radialgradient>
         </defs>

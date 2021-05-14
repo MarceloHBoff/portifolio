@@ -20,22 +20,28 @@ export default function Project({ project }: ProjectProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <S.Title>{project.title}</S.Title>
-      <S.SubTitle>{project.description}</S.SubTitle>
+      <S.TextContent color={project.color}>
+        <S.Title>{project.title}</S.Title>
+        <S.SubTitle>{project.description}</S.SubTitle>
+      </S.TextContent>
 
-      <Slider>
+      <Slider dotsColor={project.color}>
         {project.images.map(image => (
-          <div key={image.url}>
-            <img src={image.url} alt={image.alt} />
-          </div>
+          <a key={image.url} href={image.url} target="_blank" rel="noreferrer">
+            <S.Image vertical={image.vertical}>
+              <img src={image.url} alt={image.alt} />
+            </S.Image>
+          </a>
         ))}
       </Slider>
 
       <S.GroupLink>
-        <S.Link href={project.giturl} target="_blank" rel="noreferrer">
-          <FaGithub color="#fff" size={40} />
-          Ir para o GitHub
-        </S.Link>
+        {project.giturl && (
+          <S.Link href={project.giturl} target="_blank" rel="noreferrer">
+            <FaGithub color="#fff" size={40} />
+            Ir para o GitHub
+          </S.Link>
+        )}
 
         {project.liveurl && (
           <S.Link href={project.liveurl} target="_blank" rel="noreferrer">
@@ -49,8 +55,31 @@ export default function Project({ project }: ProjectProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const response = await fetchApi(
+    `
+    query {
+      allProjects {
+        edges {
+          node {
+            _meta {
+              uid
+            }
+          }
+        }
+      }
+    }
+  `,
+    {}
+  )
+
+  const paths = response.allProjects.edges.map(
+    (node: { node: { _meta: { uid: string } } }) => ({
+      params: { id: node.node._meta.uid }
+    })
+  )
+
   return {
-    paths: [{ params: { id: 'cashflow' } }, { params: { id: 'reader' } }],
+    paths,
     fallback: false
   }
 }
@@ -69,6 +98,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             banner
             liveurl
             giturl
+            color
             _meta {
               uid
             }

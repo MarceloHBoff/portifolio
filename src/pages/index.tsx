@@ -44,6 +44,7 @@ export const getStaticProps: GetStaticProps = async () => {
             description
             banner
             liveurl
+            color
             giturl
             _meta {
               uid
@@ -59,7 +60,6 @@ export const getStaticProps: GetStaticProps = async () => {
     {}
   )
 
-  // console.log(JSON.stringify(response, null, 2))
   const projects = [] as ProjectType[]
 
   response.allProjects.edges.forEach((project: any) => {
