@@ -4,9 +4,12 @@ import Head from 'next/head'
 
 import Footer from 'components/Footer'
 import Header from 'components/Header'
+import { ToastContainer } from 'react-toastify'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
+
+import 'react-toastify/dist/ReactToastify.css'
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -15,8 +18,8 @@ function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Marcelo Boff - Portifólio</title>
-        <link rel="shortcut icon" href="/img/icon-512.png" />
-        <link rel="apple-touch-icon" href="/img/icon-512.png" />
+        <link rel="shortcut icon" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="Portifólio of Marcelo Boff" />
 
@@ -37,9 +40,18 @@ function App({ Component, pageProps }: AppProps) {
 
         <Header router={router} />
 
-        <Component {...pageProps} />
+        <div
+          style={{
+            overflowY: 'auto',
+            maxHeight: 'calc(100vh - 6rem - 2.5rem)'
+          }}
+        >
+          <Component {...pageProps} />
+        </div>
 
         <Footer />
+
+        <ToastContainer autoClose={3000} />
       </ThemeProvider>
     </>
   )

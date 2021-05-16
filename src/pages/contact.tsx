@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 import PrismicDOM from 'prismic-dom'
 import { FormEvent, useCallback, useState } from 'react'
+import { toast } from 'react-toastify'
 import { fetchApi } from 'service/prismic'
 import * as S from 'styles/pages/contact'
 
@@ -41,6 +42,32 @@ export default function Contact({ socials }: ContactProps) {
   const handleSubmit = useCallback(
     (e: FormEvent) => {
       e.preventDefault()
+
+      toast.info('Email em processamento!')
+
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          text: data.message
+        })
+      })
+        .then(() => {
+          toast.success('Email enviado com sucesso!')
+          setData({
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+          })
+        })
+        .catch(err => toast.error(err))
     },
     [data]
   )
