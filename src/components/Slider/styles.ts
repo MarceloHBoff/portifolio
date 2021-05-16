@@ -1,5 +1,6 @@
 import { lighten } from 'polished'
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 type WrapperProps = {
   dotsColor?: string
@@ -7,6 +8,10 @@ type WrapperProps = {
 
 export const Wrapper = styled.div<WrapperProps>`
   max-width: 70%;
+
+  ${media.lessThan('large')`
+    max-width: 100%;
+  `}
 
   ${({ theme, dotsColor = theme.colors.primaryDark }) => css`
     .slick-dots {

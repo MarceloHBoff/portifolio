@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 type ContainerProps = {
   vertical: boolean
@@ -23,11 +24,24 @@ export const Container = styled.div<ContainerProps>`
 
       ${vertical &&
       css`
-        width: 35%;
         border-radius: 0px;
         margin: 0 auto;
+        width: 35%;
+
+        ${media.lessThan('medium')`
+          width: 100%;
+        `}
       `}
     }
+
+    ${media.lessThan('large')`
+      padding: 0;
+      padding-top: ${theme.spacings.normal};
+
+      img {
+        border-radius: 0;
+      }
+    `}
   `}
 `
 

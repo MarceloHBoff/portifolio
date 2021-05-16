@@ -1,17 +1,12 @@
 import { darken } from 'polished'
 import styled, { css } from 'styled-components'
-
-import { Wrapper as SliderWrapper } from '../../components/Slider/styles'
+import media from 'styled-media-query'
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  ${SliderWrapper} {
-    max-width: 50%;
-  }
 `
 
 type TextContentProps = {
@@ -62,8 +57,20 @@ export const Image = styled.div<ImageProps>`
         width: 30%;
         border-radius: 0px;
         margin: 0 auto;
+
+        ${media.lessThan('medium')`
+          width: 100%;
+        `}
       `}
     }
+
+    ${media.lessThan('large')`
+      padding: 0;
+
+      img {
+        border-radius: 0;
+      }
+    `}
   `}
 `
 

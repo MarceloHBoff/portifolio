@@ -7,7 +7,15 @@ const settings: Settings = {
   dots: true,
   infinite: false,
   nextArrow: <FaArrowRight color="#fff" />,
-  prevArrow: <FaArrowLeft color="#fff" />
+  prevArrow: <FaArrowLeft color="#fff" />,
+  responsive: [
+    {
+      breakpoint: 1170,
+      settings: {
+        arrows: false
+      }
+    }
+  ]
 }
 
 type SliderProps = Settings & {

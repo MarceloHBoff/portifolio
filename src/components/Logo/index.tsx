@@ -1,8 +1,6 @@
 import { useMemo } from 'react'
 import theme from 'styles/theme'
 
-import { Container } from './styles'
-
 export type LogoProps = {
   id?: string
   size?: 'small' | 'normal'
@@ -13,7 +11,13 @@ export default function Logo({ id = 'logo', size = 'normal' }: LogoProps) {
   const height = useMemo(() => (size === 'normal' ? 5 : 3), [size])
 
   return (
-    <Container style={{ width: `${width}rem`, height: `${height}rem` }}>
+    <div
+      style={{
+        width: `${width}rem`,
+        height: `${height}rem`,
+        marginTop: '-0.5rem'
+      }}
+    >
       <svg
         width={width * 10}
         height={height * 10}
@@ -151,6 +155,6 @@ export default function Logo({ id = 'logo', size = 'normal' }: LogoProps) {
           </radialGradient>
         </defs>
       </svg>
-    </Container>
+    </div>
   )
 }
