@@ -110,16 +110,17 @@ export default function Contact({ socials }: ContactProps) {
 
       <S.Socials>
         {socials.map(social => (
-          <S.Social key={social.uid}>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href={social.url}
-              title={social.description}
-            >
+          <a
+            key={social.uid}
+            target="_blank"
+            rel="noreferrer"
+            href={social.url}
+            title={social.description}
+          >
+            <S.Social>
               <img src={social.image} alt={social.description} />
-            </a>
-          </S.Social>
+            </S.Social>
+          </a>
         ))}
       </S.Socials>
     </S.Container>

@@ -16,8 +16,6 @@ export async function fetchApi<T = any>(
       headers: {
         'Prismic-Ref': prismicApi.masterRef.ref,
         'Content-Type': 'application/json'
-        // 'Accept-Language': process.env.PRISMIC_LOCALE,
-        // Authorization: `Token ${process.env.PRISMIC_API_TOKEN}`
       }
     }
   )

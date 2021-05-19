@@ -46,16 +46,17 @@ export default function WhoIAm({
       <S.Title>{techstitle}</S.Title>
       <S.Techs>
         {techs.map(tech => (
-          <S.Tech key={tech.uid}>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href={tech.url}
-              title={tech.description}
-            >
+          <a
+            key={tech.uid}
+            target="_blank"
+            rel="noreferrer"
+            href={tech.url}
+            title={tech.description}
+          >
+            <S.Tech>
               <img src={tech.image} alt={tech.description} />
-            </a>
-          </S.Tech>
+            </S.Tech>
+          </a>
         ))}
       </S.Techs>
     </S.Container>
@@ -107,7 +108,7 @@ export const getStaticProps: GetStaticProps = async () => {
         uid: node._meta.uid,
         description: PrismicDOM.RichText.asText(node.description),
         image: node.image.url,
-        url: node.url
+        url: PrismicDOM.RichText.asText(node.url)
       }))
     },
     revalidate: 60 * 60 * 24 // 24 horas
